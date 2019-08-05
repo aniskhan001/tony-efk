@@ -1,12 +1,15 @@
 dependencies:
 - name: elasticsearch
   repository: https://helm.elastic.co
-  version: 7.2.0
+  version: 7.3.0
 - name: fluent-bit
   repository: https://kubernetes-charts.storage.googleapis.com/
   version: 1.3.0
 - name: kibana
   repository: https://helm.elastic.co
-  version: 7.2.0
-digest: sha256:af709f79fd35f506519b5f075d1fcaca8343a4dc6b3aba4ac5f907db62c04fe2
-generated: "2019-07-25T01:26:21.828732+06:00"
+  version: 7.3.0
+- name: filebeat
+  repository: https://helm.elastic.co
+  version: 7.3.0
+digest: sha256:fbf307375101d5511aafdfd5b497921f321c0e3a33f4397063e3b549899dc1ac
+generated: "2019-08-02T23:40:49.826454+06:00"

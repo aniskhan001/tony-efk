@@ -21,6 +21,7 @@ elasticsearch:
 
 # https://github.com/helm/charts/blob/master/stable/fluent-bit/values.yaml
 fluent-bit:
+  enabled: false
   image:
     fluent_bit:
       repository: fluent/fluent-bit
@@ -33,3 +34,22 @@ fluent-bit:
       port: 9200
       index: kubernetes_cluster
       logstash_prefix: kubernetes_cluster
+
+filebeat:
+  enabled: false
+  filebeatConfig:
+    filebeat.yml: |
+      filebeat.inputs:
+      - type: docker
+        containers.ids:
+        - '*'
+        processors:
+        - add_kubernetes_metadata:
+            in_cluster: true
+
+      output.elasticsearch:
+        hosts: '${ELASTICSEARCH_HOSTS:elasticsearch-efk-master:9200}'
+
+      filebeat.modules:
+        - module: kafka
+        - module: system
