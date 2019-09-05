@@ -48,7 +48,7 @@ filebeat:
             in_cluster: true
 
       output.elasticsearch:
-        hosts: '${ELASTICSEARCH_HOSTS:elasticsearch-efk-master:9200}'
+        hosts: ["http://elasticsearch-efk-master:9200"]
 
       filebeat.modules:
         - module: kafka
